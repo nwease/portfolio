@@ -4,6 +4,11 @@ import './App.css'
 import Container from 'react-bootstrap/Container';
 import {Navbar} from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
+import Home from './pages/Home';
+import {Route} from 'react-router-dom';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Footer from './components/Footer';
 
 class App extends Component {
 
@@ -61,6 +66,20 @@ class App extends Component {
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
+
+                    <Route exact path='/'>
+                        <Home title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text} />
+                    </Route>
+
+                    <Route exact path='/about'>
+                        <About title={this.state.about.title} />
+                    </Route>
+
+                    <Route exact path='/contact'>
+                        <Contact title={this.state.contact.title} />
+                    </Route>
+
+                    {/*<Footer />*/}
                 </Container>
             </Router>
         );
